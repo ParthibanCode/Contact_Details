@@ -26,7 +26,6 @@ public class ContactController {
 	@PostMapping("/create")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	void createNewContact(@RequestBody @Valid Contact contact) {
-		System.out.println(contact.getCity());
 		contactService.createContact(contact);
 	}
 	
@@ -41,7 +40,7 @@ public class ContactController {
 	}
 	
 	@PostMapping("/update/{id}")
-	void updateContact(@PathVariable("id") Integer id) {
+	void updateContact(@RequestBody Contact contact, @PathVariable("id") Integer id) {
 		
 	}
 	

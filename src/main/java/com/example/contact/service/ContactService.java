@@ -27,7 +27,8 @@ public class ContactService {
 	}
 	
 	public void updateContactbyId(Contact contact, Integer id) {
-		
+		Contact c1 = contactRepository.findById(id).get();
+		contactRepository.save(c1);
 	}
 	
 	public void deleteContactbyId(Integer id) {
