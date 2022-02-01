@@ -19,4 +19,8 @@ public class ContactService {
 	public Iterable<Contact> getContacts() {
 		return contactRepository.findAll();
 	}
+	
+	public void deleteContactbyId(Integer id) {
+		contactRepository.deleteById(id);
+	}
 }
