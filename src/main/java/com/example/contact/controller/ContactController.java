@@ -41,7 +41,7 @@ public class ContactController {
 	
 	@PostMapping("/update/{id}")
 	void updateContact(@RequestBody Contact contact, @PathVariable("id") Integer id) {
-		
+		contactService.updateContactbyId(contact, id);
 	}
 	
 	@DeleteMapping("/contact/{id}")

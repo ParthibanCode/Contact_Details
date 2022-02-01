@@ -31,9 +31,6 @@ public class Contact {
 	private String mobNum1;
 	private String mobNum2;
 	private String mobNum3;
-	
-	public Contact(){
-	}
 
 	public Integer getId() {
 		return id;

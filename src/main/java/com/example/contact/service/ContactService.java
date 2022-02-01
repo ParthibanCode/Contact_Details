@@ -28,6 +28,33 @@ public class ContactService {
 	
 	public void updateContactbyId(Contact contact, Integer id) {
 		Contact c1 = contactRepository.findById(id).get();
+		if(contact.getHouseNum()!=0) {
+			c1.setHouseNum(contact.getHouseNum());
+		}
+		if(contact.getStreet()!="") {
+			c1.setStreet(contact.getStreet());
+		}
+		if(contact.getCity()!="") {
+			c1.setCity(contact.getCity());
+		}
+		if(contact.getFirstName()!="") {
+			c1.setFirstName(contact.getFirstName());
+		}
+		if(contact.getLastName()!="") {
+			c1.setLastName(contact.getLastName());
+		}
+		if(contact.getAge()!=0) {
+			c1.setAge(contact.getAge());
+		}
+		if(contact.getMobNum1()!="") {
+			c1.setMobNum1(contact.getMobNum1());
+		}
+		if(contact.getMobNum2()!="") {
+			c1.setMobNum2(contact.getMobNum2());
+		}
+		if(contact.getMobNum3()!="") {
+			c1.setMobNum3(contact.getMobNum3());
+		}
 		contactRepository.save(c1);
 	}
 	
