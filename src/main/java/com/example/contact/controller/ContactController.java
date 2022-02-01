@@ -1,5 +1,9 @@
 package com.example.contact.controller;
 
+import java.util.Optional;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,7 +25,7 @@ public class ContactController {
 	
 	@PostMapping("/create")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	void createNewContact(@RequestBody Contact contact) {
+	void createNewContact(@RequestBody @Valid Contact contact) {
 		System.out.println(contact.getCity());
 		contactService.createContact(contact);
 	}
@@ -29,6 +33,16 @@ public class ContactController {
 	@GetMapping("/viewAll")
 	Iterable<Contact > getAllContacts() {
 		return contactService.getContacts();
+	}
+	
+	@GetMapping("/view/{id}")
+	Optional<Contact> getContact(@PathVariable("id") Integer id){
+		return contactService.getContactbyId(id);
+	}
+	
+	@PostMapping("/update/{id}")
+	void updateContact(@PathVariable("id") Integer id) {
+		
 	}
 	
 	@DeleteMapping("/contact/{id}")
