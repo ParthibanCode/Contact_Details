@@ -2,6 +2,7 @@ package com.example.contact.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -21,6 +22,11 @@ public class ContactController {
 	void createNewContact(@RequestBody Contact contact) {
 		System.out.println(contact.getCity());
 		contactService.createContact(contact);
+	}
+	
+	@GetMapping("/view")
+	Iterable<Contact> getAllContacts() {
+		return contactService.getContacts();
 	}
 
 }
